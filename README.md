@@ -8,3 +8,11 @@ if(checkbox.checked) {
 } else {
     console.log("O cliente não marcou o checkbox");
 }
+
+
+Verificar esse site 
+
+https://www.treinaweb.com.br/blog/criando-contadores-apenas-com-css
+
+
+
