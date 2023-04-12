@@ -1,12 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prova</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: blueviolet;
+            height: 100vh;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+
+        main {
+            height: 794px;
+            border-radius: 8px;
+            background-color: #F2F2F2;
+            width: 560px;
+        }
+
+        .restante {
+            padding: 32px;
+        }
+
+        .cabecalho {
+            background-image: url("Background Shape.png");
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: space-around;
+            height: 200px;
+
+        }
+
+        #observacoes {
+            position: relative;
+            width: 100%;
+            text-align: start;
+        }
+
+        #caixaCabecalho {
+            width: 168px;
+            height: 168px;
+        }
+
+        #msgSucesso {
+            display: none;
+
+        }
+        .rodape{
+            display: flex;
+            width: 100%;
+        }
+        .buttonEnv{
+
+        }
+    </style>
 </head>
+
 <body>
-    
+    <main>
+
+        <div class="cabecalho">
+            <p>Formulário <br> compra de <br><strong>Pacote de Stickers</strong></p>
+            <img src="bx-package.png" id="caixaCabecalho">
+        </div>
+
+        <div class="restante">
+
+            <p>Quais Stickers ?</p>
+            <div class="checkbox">
+                <div class="cl1">
+                    <input type="checkbox" id="react" name="react">
+                    <p>React</p>
+                </div>
+                <div class="cl2">
+                    <input type="checkbox" id="react" name="react">
+                    <p>Vue</p>
+                </div>
+                <div class="cl3">
+                    <input type="checkbox" id="react" name="react">
+                    <p>Angular</p>
+                </div>
+
+            </div>
+
+            <p>Quantos stickers de cada ?</p>
+            <div class="talDoMaisMenos">
+                <button id="buttonMenos">-</button>
+                <input type="text" value="0" disabled id="valorContador">
+                <button id="buttonMais">+</button>
+
+
+            </div>
+
+            <p>Observações</p>
+            <textarea id="observacoes" name="observacoes" cols="30" rows="10">
+                - Gostaria de stickers 3x2cm.
+                - Com papel especial laminado.
+                - Manda um beijo pro Julio!
+            </textarea>
+            <div class="rodape">
+                <span id="msgSucesso">Formulário enviado com sucesso !</span>
+                <button id="buttonEnv">Enviar</button>
+            </div>
+
+
+            <script>
+                const contador = document.querySelector('#valorContador');
+                const buttonMenos = document.querySelector('#buttonMenos');
+                const buttonMais = document.querySelector('#buttonMais');
+                const msgSucesso = document.querySelector('#msgSucesso')
+
+                let value = contador.value;
+
+                buttonMais.addEventListener('click', () => {
+                    value = ++value;
+                    contador.value = value;
+                });
+
+                buttonMenos.addEventListener('click', () => {
+                    value = value !== 0 ? --value : 0;
+                    contador.value = value;
+
+                })
+
+                document.querySelector("#buttonEnv").addEventListener('click', (e) => {
+                    msgSucesso.style.display = "block";
+
+
+                })
+            </script>
+
+
+
+        </div>
+    </main>
 </body>
+
 </html>
